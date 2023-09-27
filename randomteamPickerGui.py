@@ -11,22 +11,13 @@ def calculateTeamDistribution(numOfMembers, numOfTeams):
         if i % numOfTeams == 0:
             lastEvenSize = i
             break
-
     for i in range(0, numOfTeams):
         teamSize.append(int(lastEvenSize / numOfTeams))
-
     while not sum(teamSize) == numOfMembers:
         minEle = min(teamSize)
         idx = teamSize.index(minEle)
         teamSize[idx] = teamSize[idx] + 1
     return teamSize
-def provideTeamMembers():
-    teamMembers = []
-    print("Please provide teams members to choose from: ")
-    for i in range (0, numberOfMembers):
-        ele = input()
-        teamMembers.append(ele)
-    return teamMembers
 def randomizeTeams(numOfTeams, teamDistro, mbrs):
     result=''
     counter=0
@@ -42,9 +33,7 @@ def randomizeTeams(numOfTeams, teamDistro, mbrs):
         counter = counter + 1
         result = result + '\n\n'
     return result
-
 def calculate(*args):
-    
     numOfTeams = int(numberOfTeams.get())
     mbrs = members.get()
     mbrs = mbrs.replace(' ', '')
